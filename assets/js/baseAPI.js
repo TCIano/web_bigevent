@@ -4,4 +4,10 @@
 $.ajaxPrefilter((options) => {
     console.log(options);
     options.url = 'http://www.liulongbin.top:3007' + options.url
+    //注入token
+    if (options.url.includes('/my/')) {
+        options.headers = {
+            Authorization: localStorage.getItem('token')
+        }
+    }
 });
