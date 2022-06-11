@@ -14,7 +14,20 @@ function getUserInfo() {
             layer.msg('获取用户信息成功!');
             //渲染用户头像和名称
             renderAvatar(res.data)
-        }
+        },
+        // complete: (res) => {
+        //     console.log(res);
+        //     //验证身份,验证失败
+        //     if (res.responseJSON.status == 1 && res.responseJSON.message == "身份认证失败！") {
+        //         //强制清空
+        //         localStorage.removeItem('token');
+        //         //强制跳转
+        //         location.href = '/login.html'
+        //         //跳转页面
+
+
+        //     }
+        // }
     });
 }
 

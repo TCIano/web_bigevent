@@ -9,5 +9,15 @@ $.ajaxPrefilter((options) => {
         options.headers = {
             Authorization: localStorage.getItem('token')
         }
+    };
+
+    //校验权限
+    options.complete = (res) => {
+        if (res.responseJSON.status == 1 && res.responseJSON.message == "身份认证失败！") {
+            //强制清空
+            localStorage.removeItem('token');
+            //强制跳转
+            location.href = '/login.html'
+        }
     }
 });
