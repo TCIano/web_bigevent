@@ -38,8 +38,7 @@ $(function () {
             // 创建一个 Canvas 画布
             width: 100,
             height: 100,
-        })
-            .toDataURL("image/png");
+        }).toDataURL("image/png");
         $('#image').attr('src', dataURL);
         $.ajax({
             method: 'POST',
